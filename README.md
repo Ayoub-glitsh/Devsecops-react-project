@@ -325,19 +325,14 @@ describe('Security Vulnerability Tests', () => {
 
 ### **Penetration Testing Scenarios**
 
-| Test Case | Description | Expected Result |
+| Test Case          | Description                          | Expected Result                    |
+|--------------------|--------------------------------------|------------------------------------|
+| SQL Injection      | `admin' OR '1'='1`                   | Query safely handled using parameterized statements |
+| Cross-Site Scripting (XSS) | `<script>alert(1)</script>` | Malicious input sanitized or escaped |
+| Command Injection  | `; rm -rf /`                         | Command execution blocked and validated |
+| Path Traversal     | `../../../etc/passwd`                | Access denied through path sanitization |
+| CSRF Attempt       | Forged cross-site request            | Request rejected due to CSRF token validation |
 
-|-----------|-------------|-----------------|
-
-| **SQL Injection** | `admin' OR '1'='1` | Parameterized query handling |
-
-| **XSS Attack** | `` | Input sanitization |
-
-| **Command Injection** | `; rm -rf /` | Command validation |
-
-| **Path Traversal** | `../../../etc/passwd` | Path sanitization |
-
-| **CSRF Attempt** | Cross-site request forgery | CSRF token validation |
 
   
 
