@@ -95,7 +95,7 @@ git --version
 
 # 1. Clone repository
 
-git clone https://github.com/YOUR_USERNAME/devsecops-react-project.git
+git clone https://github.com/Ayoub-glitsh/devsecops-react-project.git
 
 cd devsecops-react-project
 
