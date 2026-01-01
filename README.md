@@ -227,19 +227,15 @@ devsecops-react-project/
 
 | Stage | Tools | Purpose | Success Criteria |
 
-|-------|-------|---------|------------------|
+| Stage               | Tools                          | Purpose                              | Success Criteria              |
+|---------------------|--------------------------------|--------------------------------------|-------------------------------|
+| 🔍 SAST             | Semgrep, ESLint                | Static source code analysis           | Zero critical findings        |
+| 📦 SCA              | npm audit, OWASP Dependency-Check | Dependency vulnerability scanning | Fewer than 5 high-severity issues |
+| 🔑 Secrets Scanning | TruffleHog, Gitleaks           | Detection of hardcoded secrets        | No secrets detected           |
+| 🐳 Container Scan   | Trivy, Docker Scout            | Container image vulnerability scanning | Zero critical CVEs            |
+| 🧪 Security Tests   | Jest, React Testing Library    | Security-focused unit testing         | 100% security test coverage   |
+| 🚦 Security Gate    | Custom logic                   | Automated deployment decision         | All security checks pass      |
 
-| **🔍 SAST** | Semgrep, ESLint | Static code analysis | Zero critical findings |
-
-| **📦 SCA** | npm audit, OWASP DC | Dependency vulnerability scan | < 5 high severity |
-
-| **🔑 Secrets** | TruffleHog, Gitleaks | Secret detection in code | Zero secrets detected |
-
-| **🐳 Container** | Trivy, Docker Scout | Image vulnerability scan | Zero critical CVEs |
-
-| **🧪 Security Tests** | Jest, React Testing Library | Security unit tests | 100% test coverage |
-
-| **🚦 Security Gate** | Custom logic | Automated deployment decision | All checks pass |
 
   
 
