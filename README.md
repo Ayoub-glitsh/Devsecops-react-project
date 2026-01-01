@@ -86,21 +86,16 @@ git clone https://github.com/YOUR_USERNAME/devsecops-react-project.git
 
 cd devsecops-react-project
 
-  
-
 # 2. Install dependencies
 
 cd app
 
 npm install
 
-  
 
 # 3. Start development server
 
 npm start
-
-  
 
 # 4. Access application
 
@@ -187,47 +182,24 @@ graph TB
 ### **Project Structure**
 
 ```
-
 devsecops-react-project/
 
 ├── 📁 app/                          # React TypeScript Application
-
 │   ├── 📁 src/                     # Source Code (Intentional Vulnerabilities)
-
 │   │   ├── 📁 components/         # React Components
-
 │   │   ├── 📁 services/          # API Services
-
 │   │   ├── App.tsx              # Main Application
-
 │   │   └── security.test.tsx    # Security Test Suite
-
 │   ├── Dockerfile               # Container Configuration
-
 │   ├── package.json            # Dependencies (Vulnerable Versions)
-
 │   └── .env.example           # Environment Template
-
 ├── 📁 .github/workflows/        # CI/CD Pipeline Definitions
-
 │   ├── devsecops-pipeline.yml  # Main Security Pipeline
-
 │   └── nightly-scan.yml       # Scheduled Security Scans
-
 ├── 📁 security/                 # Security Configurations
-
-│   ├── semgrep-rules.yml      # Custom SAST Rules
-
-│   └── compliance-policy.yml  # Security Policy
-
+│   └── semgrep-rules.yml  # Custom SAST Rules
 ├── 📁 scripts/                  # Automation Scripts
-
-│   ├── security-scan.sh       # Local Security Testing
-
-│   └── compliance-check.sh    # Policy Enforcement
-
-├── docker-compose.yml         # Multi-container Setup
-
+│   └── security-scan.js  # Local Security Testing
 └── README.md                 # This Document
 
 ```
@@ -261,7 +233,6 @@ devsecops-react-project/
 ### **Pipeline Configuration**
 
 ```yaml
-
 name: DevSecOps Security Pipeline
 
 on: [push, pull_request, schedule]
@@ -299,7 +270,6 @@ jobs:
       - name: 🚦 Security Gate
 
         run: scripts/security-gate.sh
-
 ```
 
   
@@ -311,29 +281,17 @@ jobs:
 ### **Security Test Suite**
 
 ```bash
-
 # Run comprehensive security tests
-
 npm run test:security
 
-  
-
 # SAST testing
-
 npm run test:sast
 
-  
-
 # Dependency vulnerability testing
-
 npm run test:dependencies
 
-  
-
 # Container security testing
-
 npm run test:container
-
 ```
 
   
@@ -341,33 +299,18 @@ npm run test:container
 ### **Test Coverage**
 
 ```typescript
-
 // Example security test
-
 import { render, screen, fireEvent } from '@testing-library/react';
-
 import UserInput from './components/UserInput';
-
-  
-
 describe('Security Vulnerability Tests', () => {
-
   test('should detect and block XSS attempts', () => {
-
     render();
-
     const input = screen.getByPlaceholderText('Enter command...');
-
     fireEvent.change(input, { target: { value: '' } });
-
     // Security mechanism should block this
-
     expect(screen.getByText(/security violation/i)).toBeInTheDocument();
-
   });
-
 });
-
 ```
 
   
@@ -397,37 +340,19 @@ describe('Security Vulnerability Tests', () => {
 ### **Docker Security Best Practices**
 
 ```dockerfile
-
 # Multi-stage build for security
-
 FROM node:18-alpine AS builder
-
 USER node
-
 WORKDIR /app
-
 COPY --chown=node:node package*.json ./
-
 RUN npm ci --only=production
-
-  
-
 FROM nginx:1.24-alpine
-
 COPY --from=builder /app/build /usr/share/nginx/html
-
 COPY nginx.conf /etc/nginx/nginx.conf
-
-  
-
 # Security enhancements
-
 USER nginx
-
 RUN chmod -R 755 /usr/share/nginx/html
-
 EXPOSE 8080
-
 ```
 
   
@@ -435,23 +360,14 @@ EXPOSE 8080
 ### **Security Scanning**
 
 ```bash
-
 # Full container security scan
-
 trivy image --severity CRITICAL,HIGH devsecops-app
 
-  
-
 # Scan for misconfigurations
-
-docker scout quickview devsecops-app
-
-  
+docker scout quickview devsecops-app 
 
 # Generate compliance report
-
 trivy image --format spdx-json devsecops-app > sbom.json
-
 ```
 
   
@@ -479,25 +395,15 @@ trivy image --format spdx-json devsecops-app > sbom.json
 ### **Security Dashboard**
 
 ```bash
-
 # Generate security reports
-
 npm run report:security
 
-  
-
 # Available reports:
-
 # - SAST Findings Report
-
 # - Dependency Audit Report  
-
 # - Container Vulnerability Report
-
 # - Compliance Status Report
-
 # - Risk Assessment Summary
-
 ```
 
   
@@ -505,25 +411,16 @@ npm run report:security
 ### **Metrics Collection**
 
 ```json
-
 {
 
   "security_metrics": {
-
     "sast_coverage": "98%",
-
     "vulnerability_trend": "-15% month-over-month",
-
     "mean_time_to_remediate": "2.5 days",
-
     "compliance_score": "94/100",
-
     "container_security": "A- rating"
-
   }
-
 }
-
 ```
 
   
@@ -547,25 +444,17 @@ npm run report:security
 ### **Security-First Development**
 
 ```typescript
-
 // ✅ SECURE: Parameterized queries
-
 const getUser = (userId: string) => {
-
   return db.query('SELECT * FROM users WHERE id = $1', [userId]);
-
 };
 
   
 
 // ❌ INSECURE: String concatenation (Intentional for demo)
-
 const getVulnerableUser = (userId: string) => {
-
   return db.query(`SELECT * FROM users WHERE id = '${userId}'`);
-
 };
-
 ```
 
   
@@ -573,21 +462,15 @@ const getVulnerableUser = (userId: string) => {
 ### **Commit Security Standards**
 
 ```bash
-
 # Pre-commit hooks
-
 npm run precommit  # Runs security checks
 
   
 
 # Commit message format
-
 [security] Fix: CVE-2023-XXXX in axios dependency
-
 [feature] Add: Input validation for user forms
-
 [fix] Update: Docker base image to patched version
-
 ```
 
   
@@ -637,23 +520,14 @@ This project contains **intentional vulnerabilities** for security training:
 ### **Remediation Examples**
 
 ```bash
-
 # Fix outdated dependencies
-
 npm audit fix --force
 
-  
-
 # Update Docker base images
-
 # FROM node:14-alpine → FROM node:18-alpine
 
-  
-
 # Implement security headers
-
 # Content-Security-Policy, X-Frame-Options, etc.
-
 ```
 
   
@@ -665,7 +539,6 @@ npm audit fix --force
 ### **Pipeline Performance**
 
 ```yaml
-
 metrics:
 
   average_execution_time: "12m 45s"
@@ -679,32 +552,11 @@ metrics:
   mean_time_to_detect: "3.2m"
 
   mean_time_to_remediate: "1.5d"
-
 ```
 
   
 
-### **Cost Optimization**
 
-```bash
-
-# Estimated monthly costs
-
-./scripts/calculate-costs.sh
-
-  
-
-# Output:
-
-# - GitHub Actions: $45/month
-
-# - Container Registry: $18/month  
-
-# - Security Tools: $120/month
-
-# - TOTAL: $183/month
-
-```
 
   
 
@@ -841,23 +693,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### **Test Your Pipeline**
 
 ```bash
-
 # Validate pipeline configuration
-
 npm run validate:pipeline
 
-  
-
 # Test security gates
-
 npm run test:security-gate
 
-  
-
 # Run complete integration test
-
 npm run test:integration
-
 ```
 
   
@@ -865,25 +708,15 @@ npm run test:integration
 ### **Pipeline Health Check**
 
 ```bash
-
 # Check pipeline status
-
 ./scripts/pipeline-health.sh
 
-  
-
 # Expected output:
-
 # ✅ Pipeline Configuration: Valid
-
 # ✅ Security Tools: All installed
-
 # ✅ Docker Build: Working
-
 # ✅ Test Suite: Passing
-
 # ✅ Security Gates: Functional
-
 ```
 
   
@@ -891,17 +724,3 @@ npm run test:integration
 ---
 
   
-
-**⚠️ Disclaimer**: This project contains intentional security vulnerabilities for educational purposes. Do not deploy to production without remediation.
-
-  
-
-**🚀 Pro Tip**: Use this project as a security training platform and CI/CD pipeline reference implementation.
-
-  
-
----
-
-  
-
-*Last Updated: $(date +%Y-%m-%d) | Pipeline Version: 2.1.0 | Security Compliance: Level 3*
