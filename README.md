@@ -225,7 +225,6 @@ devsecops-react-project/
 
 ### **Pipeline Stages**
 
-| Stage | Tools | Purpose | Success Criteria |
 
 | Stage               | Tools                          | Purpose                              | Success Criteria              |
 |---------------------|--------------------------------|--------------------------------------|-------------------------------|
