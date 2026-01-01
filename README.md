@@ -508,20 +508,14 @@ npm run precommit  # Runs security checks
 This project contains **intentional vulnerabilities** for security training:
 
   
+| Vulnerability            | Location            | CVSS Score | Learning Objective           |
+|--------------------------|---------------------|------------|------------------------------|
+| Command Injection        | `UserInput.tsx`     | 9.8        | Secure input validation      |
+| Cross-Site Scripting (XSS) | `UserInput.tsx`   | 8.2        | Proper output encoding       |
+| Hardcoded Secrets        | `api.ts`            | 7.5        | Secure secret management     |
+| SQL Injection Pattern    | `SearchBar.tsx`     | 8.9        | Use of parameterized queries |
+| Outdated Dependencies    | `package.json`      | Varies     | Dependency lifecycle management |
 
-| Vulnerability | Location | CVSS Score | Learning Objective |
-
-|---------------|----------|------------|-------------------|
-
-| **Command Injection** | `UserInput.tsx` | 9.8 | Input validation |
-
-| **XSS via innerHTML** | `UserInput.tsx` | 8.2 | Output encoding |
-
-| **Hardcoded Secrets** | `api.ts` | 7.5 | Secret management |
-
-| **SQL Injection Pattern** | `SearchBar.tsx` | 8.9 | Parameterized queries |
-
-| **Outdated Dependencies** | `package.json` | Varies | Dependency management |
 
   
 
