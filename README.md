@@ -382,17 +382,12 @@ trivy image --format spdx-json devsecops-app > sbom.json
 
 ### **Security Benchmarks**
 
-| Benchmark | Status | Compliance |
-
-|-----------|---------|------------|
-
-| **CIS Docker** | ✅ 92% | Best Practices |
-
-| **NIST 800-190** | ✅ 88% | Container Security |
-
-| **OWASP Top 10** | ✅ 95% | Web Application Security |
-
-| **PCI DSS** | ⚠️ 78% | Payment Card Industry |
+| Benchmark           | Status | Compliance Scope                |
+|---------------------|--------|---------------------------------|
+| CIS Docker Benchmark | ✅ 92% | Container security best practices |
+| NIST SP 800-190     | ✅ 88% | Application container security  |
+| OWASP Top 10        | ✅ 95% | Web application security        |
+| PCI DSS             | ⚠️ 78% | Payment card data security      |
 
   
 
