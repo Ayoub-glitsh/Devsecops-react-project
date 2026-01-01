@@ -15,7 +15,7 @@
 
 <p align="center">
   <img src="img/devops_02.png"  width="45%"/>
-  <img src="img/.png"  width="45%"/>
+  <img src="img/graphe.png"  width="45%"/>
 </p>
 
 
