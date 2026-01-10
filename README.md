@@ -2,6 +2,10 @@
 
 
 
+
+
+
+
   
 
 ![GitHub Actions](https://img.shields.io/github/actions/workflow/status/YOUR_USERNAME/devsecops-react-project/.github/workflows/devsecops-pipeline.yml?branch=main&label=DevSecOps%20Pipeline&style=for-the-badge)![Security](https://img.shields.io/badge/Security-DevSecOps%20Compliant-green?style=for-the-badge&logo=security)![Docker](https://img.shields.io/badge/Docker-Containers%20Scanned-blue?style=for-the-badge&logo=docker)![React](https://img.shields.io/badge/React-TypeScript%20Secure-61DAFB?style=for-the-badge&logo=react)![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge)
