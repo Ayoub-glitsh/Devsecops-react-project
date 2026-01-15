@@ -1,7 +1,7 @@
 
 <p align="center">
   <img 
-    src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=900&lines=DevSecOps+CI%2FCD+Pipeline+with+React+%26+Security+Automation" 
+    src="https://readme-typing-svg.demolab.com? font=Fira+Code&size=24&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=900&lines=DevSecOps+CI%2FCD+Pipeline+with+React+%26+Security+Automation" 
     alt="Typing SVG" 
   />
 </p>
